@@ -1,23 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "../App.css"; // Import CSS for styling
 
 const FeedDisplay = ({ feedItems }) => {
-    console.log("Feed Items in Display:", feedItems); // Debugging output
+    const [expandedIndex, setExpandedIndex] = useState(null);
+
+    const handleReadMore = (index) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
 
     return (
-        <div>
+        <div className="feed-container">
             <h2>RSS Feed Items</h2>
             {Array.isArray(feedItems) && feedItems.length === 0 ? (
                 <p>No feed items to display.</p>
             ) : Array.isArray(feedItems) ? (
-                <ul>
+                <ul className="feed-list">
                     {feedItems.map((item, index) => (
-                        <li key={index}>
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
-                            <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                Read More
-                            </a>
+                        <li key={index} className="feed-item">
+                            <h3>{item.Title}</h3>
+                            <p>{item.Description}</p>
+                            {expandedIndex === index ? (
+                                <div className="feed-details">
+                                    <p>Publication Date: {item.PubDate || "Unknown"}</p>
+                                    <p>Author: {item.Author || "Unknown"}</p>
+                                    <a
+                                        href={item.Link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Visit the Full Article
+                                    </a>
+                                    <button onClick={() => handleReadMore(index)}>
+                                        Show Less
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => handleReadMore(index)}>
+                                    Read More
+                                </button>
+                            )}
                         </li>
                     ))}
                 </ul>
@@ -28,9 +50,16 @@ const FeedDisplay = ({ feedItems }) => {
     );
 };
 
-// PropTypes validation
 FeedDisplay.propTypes = {
-    feedItems: PropTypes.array.isRequired, // Ensure feedItems is an array
+    feedItems: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            link: PropTypes.string.isRequired,
+            pubDate: PropTypes.string,
+            author: PropTypes.string,
+        })
+    ).isRequired,
 };
 
 export default FeedDisplay;
