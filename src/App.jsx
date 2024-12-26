@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FeedSelector from "./components/FeedSelector";
 import CustomFeedInput from "./components/CustomFeedInput";
 import FeedDisplay from "./components/FeedDisplay";
