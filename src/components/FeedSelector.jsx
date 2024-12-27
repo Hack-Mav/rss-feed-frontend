@@ -7,7 +7,7 @@ const FeedSelector = ({ onFeedSelect }) => {
     const [selectedFeed, setSelectedFeed] = useState("");
 
     useEffect(() => {
-        axios.get("/feeds")
+        axios.get(`${import.meta.env.VITE_API_URL}/feeds`)
             .then((response) => setFeeds(response.data))
             .catch((error) => console.error("Error fetching feeds:", error));
     }, []);

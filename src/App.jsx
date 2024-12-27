@@ -11,7 +11,7 @@ const App = () => {
     const fetchFeed = (url) => {
         setLoading(true);
         axios
-            .get(`/fetch-store?url=${encodeURIComponent(url)}`)
+            .get(`${import.meta.env.VITE_API_URL}/fetch-store?url=${encodeURIComponent(url)}`)
             .then((response) => {
                 console.log("API Response:", response.data); // Inspect the API response
                 // Ensure response.data is an array
