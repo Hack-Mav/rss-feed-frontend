@@ -19,7 +19,7 @@ const FeedDisplay = ({ feedItems }) => {
                     {feedItems.map((item, index) => (
                         <div key={index} className="feed-item">
                             <h3>{item.Title}</h3>
-                            <p>{item.Description}</p>
+                            {item.Description}
                             {expandedIndex === index ? (
                                 <div className="feed-details">
                                     <p>Publication Date: {item.PubDate || "Unknown"}</p>
@@ -28,6 +28,7 @@ const FeedDisplay = ({ feedItems }) => {
                                         href={item.Link}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        style={{ display: "block", marginTop: "0.2rem" }}
                                     >
                                         Visit the Full Article
                                     </a>

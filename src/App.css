@@ -41,7 +41,7 @@ header p {
 /* Feed Container */
 .feed-container {
   background-color: #ffffff;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
@@ -82,10 +82,13 @@ header p {
 .feed-item p {
   font-size: 1rem;
   line-height: 1.6;
+  margin: 2px;
   color: #555;
 }
 
 .feed-details {
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
   font-size: 0.9rem;
   color: #777;
@@ -132,7 +135,7 @@ a:hover {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  max-width: 800px;
 }
 
 /* Feed Selector Title */
@@ -147,7 +150,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* Styled Dropdown */
@@ -155,6 +158,7 @@ a:hover {
   flex-grow: 1;
   padding: 10px;
   font-size: 1rem;
+  max-width: 200%;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
@@ -211,7 +215,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* Styled Input Field */
