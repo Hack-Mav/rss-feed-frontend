@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import "../App.css"; // Import styles
 
 const CustomFeedInput = ({ onFeedSelect }) => {
     const [customUrl, setCustomUrl] = useState("");
@@ -11,17 +12,24 @@ const CustomFeedInput = ({ onFeedSelect }) => {
     };
 
     return (
-        <div>
-            <h2>Enter a Custom RSS Feed URL</h2>
-            <input
-                type="text"
-                value={customUrl}
-                onChange={(e) => setCustomUrl(e.target.value)}
-                placeholder="Enter RSS Feed URL"
-            />
-            <button onClick={handleFetch} disabled={!customUrl}>
-                Fetch Feed
-            </button>
+        <div className="custom-feed-container">
+            <h2 className="custom-feed-title">Enter a Custom RSS Feed URL</h2>
+            <div className="custom-feed-controls">
+                <input
+                    type="text"
+                    className="custom-feed-input"
+                    value={customUrl}
+                    onChange={(e) => setCustomUrl(e.target.value)}
+                    placeholder="Enter RSS Feed URL"
+                />
+                <button
+                    className="custom-feed-button"
+                    onClick={handleFetch}
+                    disabled={!customUrl}
+                >
+                    Fetch Feed
+                </button>
+            </div>
         </div>
     );
 };

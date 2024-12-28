@@ -1,123 +1,275 @@
+/* Root container */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 2rem;
   text-align: center;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9; /* Light background */
+  color: #333;
 }
 
-.logo {
-  height: 6em;  
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-/* Center-align the entire container */
-.feed-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  text-align: center; /* Align text to center */
-  /* height: 100vh;  */
-  margin: 0 auto; /* Ensure proper centering */
-  padding: 20px;
-  background-color: #f9f9f9; /* Optional background color */
-}
-
-/* Style for the feed list */
-.feed-list {
-  list-style: none; /* Remove default list styling */
-  padding: 0;
-  margin: 0;
-  width: 100%; /* Optional: Adjust width as needed */
-  max-width: 600px; /* Restrict max width */
-}
-
-
-/* Style for each feed item */
-.feed-item {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
+/* App Header */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1.5rem;
   border-radius: 8px;
-  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: left; /* Left-align text within each item */
 }
 
-/* Style for feed details */
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+}
+
+/* Cards and containers */
+.card {
+  padding: 1.5rem;
+  /* margin-bottom: 2rem; */
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Feed Container */
+.feed-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  text-align: left; /* Align content to the left for readability */
+  max-width: 1280px;
+}
+
+/* Grid Layout for Feed Items */
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Spacing between grid items */
+  width: 100%;
+  margin: 20px 0;
+}
+
+.feed-item {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left; /* Align content within grid items */
+}
+
+.feed-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feed-item h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.feed-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
 .feed-details {
   margin-top: 10px;
-  text-align: left; /* Optional: Keep details left-aligned */
+  font-size: 0.9rem;
+  color: #777;
 }
 
-
-/* Style for buttons */
+/* Buttons */
 button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 20px;
   border-radius: 4px;
-  cursor: pointer;
   font-size: 14px;
-  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* Style for links */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Links */
 a {
   color: #007bff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+
+/* Feed Selector Container */
+.feed-selector-container {
+  margin: 20px auto;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+
+/* Feed Selector Title */
+.feed-selector-title {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Feed Selector Controls */
+.feed-selector-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Styled Dropdown */
+.feed-selector-dropdown {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feed-selector-dropdown:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Styled Button */
+.feed-selector-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feed-selector-button:hover {
+  background-color: #0056b3;
+}
+
+.feed-selector-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+/* Custom Feed Container */
+.custom-feed-container {
+  margin: 20px auto;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+
+/* Custom Feed Title */
+.custom-feed-title {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Custom Feed Controls */
+.custom-feed-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Styled Input Field */
+.custom-feed-input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-feed-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Styled Button */
+.custom-feed-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-feed-button:hover {
+  background-color: #0056b3;
+}
+
+.custom-feed-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feed-container {
+    padding: 1.5rem;
+  }
+
+  .feed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .feed-item {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
 }

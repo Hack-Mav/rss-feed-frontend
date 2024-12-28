@@ -30,13 +30,23 @@ const App = () => {
     };    
 
     return (
-        <div>
+        <div id="root">
+          <header>
             <h1>RSS Feed Reader</h1>
+            <p>Stay updated with the latest articles from your favorite sources.</p>
+          </header>
+    
+          <div className="card">
+            {/* <h2>Select an RSS Feed</h2> */}
             <FeedSelector onFeedSelect={fetchFeed} />
             <CustomFeedInput onFeedSelect={fetchFeed} />
+          </div>
+    
+          <div className="feed-container">
             {loading ? <p>Loading feed items...</p> : <FeedDisplay feedItems={feedItems} />}
+          </div>
         </div>
-    );
+      );
 };
 
 export default App;

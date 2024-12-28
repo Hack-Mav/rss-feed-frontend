@@ -15,9 +15,9 @@ const FeedDisplay = ({ feedItems }) => {
             {Array.isArray(feedItems) && feedItems.length === 0 ? (
                 <p>No feed items to display.</p>
             ) : Array.isArray(feedItems) ? (
-                <ul className="feed-list">
+                <div className="feed-grid">
                     {feedItems.map((item, index) => (
-                        <li key={index} className="feed-item">
+                        <div key={index} className="feed-item">
                             <h3>{item.Title}</h3>
                             <p>{item.Description}</p>
                             {expandedIndex === index ? (
@@ -40,9 +40,9 @@ const FeedDisplay = ({ feedItems }) => {
                                     Read More
                                 </button>
                             )}
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             ) : (
                 <p>Unexpected data format. Please try again later.</p>
             )}
@@ -53,11 +53,11 @@ const FeedDisplay = ({ feedItems }) => {
 FeedDisplay.propTypes = {
     feedItems: PropTypes.arrayOf(
         PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            link: PropTypes.string.isRequired,
-            pubDate: PropTypes.string,
-            author: PropTypes.string,
+            Title: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+            Link: PropTypes.string.isRequired,
+            PubDate: PropTypes.string,
+            Author: PropTypes.string,
         })
     ).isRequired,
 };
