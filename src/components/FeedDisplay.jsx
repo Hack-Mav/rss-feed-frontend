@@ -9,6 +9,13 @@ const FeedDisplay = ({ feedItems }) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
 
+    const truncateText = (text, limit) => {
+        if (text.length > limit) {
+            return `${text.slice(0, limit)}...`;
+        }
+        return text;
+    };
+
     return (
         <div className="feed-container">
             <h2>RSS Feed Items</h2>
@@ -19,7 +26,11 @@ const FeedDisplay = ({ feedItems }) => {
                     {feedItems.map((item, index) => (
                         <div key={index} className="feed-item">
                             <h3>{item.Title}</h3>
-                            {item.Description}
+                            <p className="feed-description">
+                                {expandedIndex === index
+                                    ? item.Description
+                                    : truncateText(item.Description, 200)}
+                            </p>
                             {expandedIndex === index ? (
                                 <div className="feed-details">
                                     <p>Publication Date: {item.PubDate || "Unknown"}</p>
