@@ -1,0 +1,216 @@
+/* Responsive design utilities and breakpoints */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  #root {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .feed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  .card {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+/* Tablets and large phones */
+@media (max-width: 768px) {
+  #root {
+    padding: var(--spacing-md);
+    max-width: 100%;
+  }
+
+  .feed-container {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+  }
+
+  .feed-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .feed-item {
+    padding: var(--spacing-md);
+  }
+
+  header h1 {
+    font-size: var(--font-size-xxl);
+  }
+
+  header p {
+    font-size: var(--font-size-base);
+  }
+  
+  .feed-selector-controls,
+  .custom-feed-controls {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .feed-selector-dropdown,
+  .custom-feed-input {
+    max-width: 100%;
+  }
+  
+  /* Responsive utilities */
+  .d-md-none { display: none; }
+  .d-md-block { display: block; }
+  .d-md-flex { display: flex; }
+  .d-md-grid { display: grid; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  #root {
+    padding: var(--spacing-sm);
+  }
+  
+  header {
+    padding: var(--spacing-md);
+  }
+  
+  header h1 {
+    font-size: var(--font-size-xl);
+  }
+  
+  header p {
+    font-size: var(--font-size-sm);
+  }
+  
+  .feed-item {
+    padding: var(--spacing-sm);
+  }
+  
+  .feed-item h3 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .feed-item p {
+    font-size: var(--font-size-sm);
+  }
+  
+  .search-filter-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .search-filter-container > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-filter-container input,
+  .search-filter-container select {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  /* Responsive utilities */
+  .d-sm-none { display: none; }
+  .d-sm-block { display: block; }
+  .d-sm-flex { display: flex; }
+  .d-sm-grid { display: grid; }
+}
+
+/* Large screens optimization */
+@media (min-width: 1200px) {
+  .feed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  /* Responsive utilities */
+  .d-xl-none { display: none; }
+  .d-xl-block { display: block; }
+  .d-xl-flex { display: flex; }
+  .d-xl-grid { display: grid; }
+}
+
+/* Touch-friendly targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  .feed-selector-button,
+  .custom-feed-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .feed-item {
+    margin: var(--spacing-sm) 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .feed-selector-container,
+  .custom-feed-container,
+  .search-filter-container,
+  button {
+    display: none !important;
+  }
+  
+  .feed-item {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .feed-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-primary: #000;
+    --text-primary: #000;
+    --bg-primary: #fff;
+    --color-primary: #0000ff;
+  }
+  
+  .feed-item {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .feed-item:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /* This can be uncommented when dark mode is implemented */
+  /*
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #b0b0b0;
+    --border-primary: #555;
+    --color-primary: #4dabf7;
+  }
+  */
+}
