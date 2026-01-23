@@ -177,7 +177,7 @@ class ApiService {
                 isLikelyRss: hasRssPattern
             };
             
-        } catch (error) {
+        } catch {
             return { valid: false, error: 'Invalid URL format' };
         }
     }

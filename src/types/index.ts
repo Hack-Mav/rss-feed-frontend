@@ -28,3 +28,56 @@ export interface FeedState {
 }
 
 export type FilterBy = 'all' | 'title' | 'description';
+
+export interface SearchHistory {
+  id: string;
+  query: string;
+  timestamp: number;
+}
+
+export interface SearchSuggestion {
+  text: string;
+  type: 'history' | 'suggestion';
+}
+
+export interface SearchOperators {
+  AND: boolean;
+  OR: boolean;
+  NOT: boolean;
+}
+
+export interface FeedCategory {
+  id: string;
+  name: string;
+  color: string;
+  description?: string;
+  createdAt: number;
+}
+
+export interface ManagedFeed {
+  id: string;
+  url: string;
+  title: string;
+  description?: string;
+  categoryId?: string;
+  isActive: boolean;
+  refreshInterval: number; // in minutes
+  lastRefreshed?: number;
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface FeedSchedule {
+  feedId: string;
+  interval: number; // in minutes
+  lastRun: number;
+  nextRun: number;
+  isActive: boolean;
+}
+
+export interface FeedExportData {
+  feeds: ManagedFeed[];
+  categories: FeedCategory[];
+  exportDate: number;
+  version: string;
+}

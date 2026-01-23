@@ -6,7 +6,7 @@ export const useFeedState = (): FeedState & {
     clearError: () => void;
     fetchFeed: (url: string) => Promise<void>;
     handleRetry: () => void;
-    fetchFeedWithStorage: (url: string) => void;
+    fetchFeedWithStorage: (url: string) => Promise<void>;
 } => {
     const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -61,9 +61,9 @@ export const useFeedState = (): FeedState & {
         }
     }, [retryCount, fetchFeed]);
 
-    const fetchFeedWithStorage = useCallback((url: string) => {
+    const fetchFeedWithStorage = useCallback(async (url: string) => {
         localStorage.setItem('lastFeedUrl', url);
-        fetchFeed(url);
+        return fetchFeed(url);
     }, [fetchFeed]);
 
     return {

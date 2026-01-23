@@ -1,4 +1,6 @@
+/* eslint-env node */
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
 // Mock localStorage
 const localStorageMock = {
@@ -7,6 +9,7 @@ const localStorageMock = {
   removeItem: vi.fn(),
   clear: vi.fn(),
 }
+ 
 global.localStorage = localStorageMock
 
 // Mock matchMedia
@@ -25,6 +28,7 @@ Object.defineProperty(window, 'matchMedia', {
 })
 
 // Mock ResizeObserver
+ 
 global.ResizeObserver = vi.fn().mockImplementation(() => ({
   observe: vi.fn(),
   unobserve: vi.fn(),
