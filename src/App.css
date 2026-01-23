@@ -3,6 +3,26 @@
 @import './styles/components.css';
 @import './styles/utilities.css';
 @import './styles/responsive.css';
+@import './styles/transitions.css';
+
+/* Search highlighting */
+mark {
+  background-color: #ffeb3b;
+  color: #000;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* Search suggestions */
+.search-suggestions .suggestion-item:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.search-suggestions .suggestion-item.focused {
+  background-color: #e3f2fd !important;
+  border-color: #2196f3;
+}
 
 /* Root container */
 #root {
