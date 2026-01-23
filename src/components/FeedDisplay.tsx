@@ -1,6 +1,15 @@
 import { useState, useCallback, memo } from "react";
+import { useTranslation } from "react-i18next";
 import type { FeedItem, ValidatedFeedItem, FilterBy } from "../types";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useAdvancedSearch } from "../hooks/useAdvancedSearch";
+import { usePagination } from "../hooks/usePagination";
+import { useAnalytics } from "../hooks/useAnalytics";
+import { formatDate } from "../i18n";
+import AdvancedSearch from "./AdvancedSearch";
+import Pagination from "./Pagination";
+import SocialShare from "./SocialShare";
+import CommentsSection from "./CommentsSection";
 import "../App.css";
 
 interface FeedItemProps {
@@ -8,6 +17,8 @@ interface FeedItemProps {
     index: number;
     expandedIndex: number | null;
     onReadMore: (index: number) => void;
+    highlightText?: (text: string, query: string) => string;
+    searchTerm?: string;
 }
 
 interface FeedDisplayProps {
@@ -15,8 +26,10 @@ interface FeedDisplayProps {
 }
 
 // Memoized feed item component for better performance
-const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: FeedItemProps) => {
+const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore, highlightText, searchTerm }: FeedItemProps) => {
+    const { t, i18n } = useTranslation();
     const { toggleBookmark, isBookmarked } = useBookmarks();
+    const { trackArticleInteraction, trackBookmark } = useAnalytics();
     const validateFeedItem = useCallback((item: FeedItem, index: number): ValidatedFeedItem | null => {
         if (!item || typeof item !== 'object') {
             console.warn(`Invalid feed item at index ${index}:`, item);
@@ -33,31 +46,23 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
     }, []);
 
     const truncateText = useCallback((text: string, limit: number): string => {
-        if (!text) return "No description available.";
+        if (!text) return t('feedItem.noDescription');
         if (text.length > limit) {
             return `${text.slice(0, limit)}...`;
         }
         return text;
-    }, []);
+    }, [t]);
 
-    const formatDate = useCallback((dateString: string | undefined): string => {
-        if (!dateString) return "Unknown";
+    const formatDateLocalized = useCallback((dateString: string | undefined): string => {
+        if (!dateString) return t('feedItem.unknown');
         
         try {
-            const date = new Date(dateString);
-            if (isNaN(date.getTime())) {
-                return dateString;
-            }
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
+            return formatDate(dateString, i18n.language);
         } catch (error) {
             console.warn("Error formatting date:", dateString, error);
-            return dateString || "Unknown";
+            return dateString || t('feedItem.unknown');
         }
-    }, []);
+    }, [t, i18n.language]);
 
     const sanitizeHtml = useCallback((html: string): string => {
         if (!html) return "";
@@ -80,9 +85,9 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
                 padding: '1rem',
                 margin: '0.5rem 0'
             }}>
-                <h4>⚠️ Invalid Feed Item</h4>
+                <h4>⚠️ {t('feedItem.invalidItem')}</h4>
                 <p style={{ margin: '0.5rem 0', fontSize: '0.875rem' }}>
-                    This feed item could not be processed due to invalid data format.
+                    {t('feedItem.invalidItemDesc')}
                 </p>
             </div>
         );
@@ -92,19 +97,33 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
     const sanitizedDescription = sanitizeHtml(description);
     const isExpanded = expandedIndex === index;
     const bookmarked = isBookmarked(validatedItem);
+    
+    // Apply text highlighting if search term exists
+    const highlightedTitle = searchTerm && highlightText ? highlightText(title, searchTerm) : title;
+    const highlightedDescription = searchTerm && highlightText ? highlightText(sanitizedDescription, searchTerm) : sanitizedDescription;
+
+    const handleBookmarkToggle = useCallback(() => {
+        toggleBookmark(validatedItem);
+        const action = bookmarked ? 'remove' : 'add';
+        trackBookmark(action, validatedItem.link, { title: validatedItem.title });
+    }, [toggleBookmark, bookmarked, validatedItem, trackBookmark]);
+
+    const handleArticleClick = useCallback(() => {
+        trackArticleInteraction('click', validatedItem.link, { title: validatedItem.title });
+    }, [trackArticleInteraction, validatedItem]);
 
     return (
         <div className="feed-item">
-            <h3>{title}</h3>
+            <h3 dangerouslySetInnerHTML={{ __html: highlightedTitle }}></h3>
             <p className="feed-description">
                 {isExpanded
-                    ? sanitizedDescription
-                    : truncateText(sanitizedDescription, 200)}
+                    ? <span dangerouslySetInnerHTML={{ __html: highlightedDescription }} />
+                    : truncateText(highlightedDescription, 200)}
             </p>
             {isExpanded ? (
                 <div className="feed-details">
-                    <p><strong>Publication Date:</strong> {formatDate(pubDate)}</p>
-                    <p><strong>Author:</strong> {author || "Unknown"}</p>
+                    <p><strong>{t('feedItem.publicationDate')}:</strong> {formatDateLocalized(pubDate)}</p>
+                    <p><strong>{t('feedItem.author')}:</strong> {author || t('feedItem.unknown')}</p>
                     <a
                         href={link}
                         target="_blank"
@@ -123,13 +142,15 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
                             if (link === "#") {
                                 e.preventDefault();
                                 alert("No valid link available for this item.");
+                            } else {
+                                handleArticleClick();
                             }
                         }}
                     >
-                        Visit Full Article
+                        {t('feedItem.visitArticle')}
                     </a>
                     <button 
-                        onClick={() => toggleBookmark(validatedItem)}
+                        onClick={handleBookmarkToggle}
                         style={{
                             marginTop: "0.5rem",
                             marginLeft: "0.5rem",
@@ -141,9 +162,9 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
                             cursor: "pointer",
                             fontSize: "0.875rem"
                         }}
-                        title={bookmarked ? "Remove bookmark" : "Bookmark this article"}
+                        title={bookmarked ? t('bookmarks.removeBookmark') : t('feedItem.bookmark')}
                     >
-                        {bookmarked ? "📚 Bookmarked" : "🔖 Bookmark"}
+                        {bookmarked ? t('feedItem.bookmarked') : t('feedItem.bookmark')}
                     </button>
                     <button 
                         onClick={() => onReadMore(index)}
@@ -159,13 +180,24 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
                             fontSize: "0.875rem"
                         }}
                     >
-                        Show Less
+                        {t('feedItem.showLess')}
                     </button>
+                    <SocialShare 
+                        url={link} 
+                        title={title} 
+                        description={sanitizedDescription}
+                        className="feed-item-share"
+                    />
+                    <CommentsSection 
+                        articleUrl={link} 
+                        articleTitle={title}
+                        className="feed-item-comments"
+                    />
                 </div>
             ) : (
                 <>
                     <button 
-                        onClick={() => toggleBookmark(validatedItem)}
+                        onClick={handleBookmarkToggle}
                         style={{
                             padding: "0.25rem 0.75rem",
                             backgroundColor: bookmarked ? "#28a745" : "#6c757d",
@@ -176,9 +208,9 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
                             fontSize: "0.875rem",
                             marginRight: "0.5rem"
                         }}
-                        title={bookmarked ? "Remove bookmark" : "Bookmark this article"}
+                        title={bookmarked ? t('bookmarks.removeBookmark') : t('feedItem.bookmark')}
                     >
-                        {bookmarked ? "📚 Bookmarked" : "🔖 Bookmark"}
+                        {bookmarked ? t('feedItem.bookmarked') : t('feedItem.bookmark')}
                     </button>
                     <button 
                         onClick={() => onReadMore(index)}
@@ -192,8 +224,19 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
                             fontSize: "0.875rem"
                         }}
                     >
-                        Read More
+                        {t('feedItem.readMore')}
                     </button>
+                    <SocialShare 
+                        url={link} 
+                        title={title} 
+                        description={sanitizedDescription}
+                        className="feed-item-share"
+                    />
+                    <CommentsSection 
+                        articleUrl={link} 
+                        articleTitle={title}
+                        className="feed-item-comments"
+                    />
                 </>
             )}
         </div>
@@ -203,15 +246,26 @@ const FeedItemComponent = memo(({ item, index, expandedIndex, onReadMore }: Feed
 FeedItemComponent.displayName = 'FeedItem';
 
 const FeedDisplay = memo(({ feedItems }: FeedDisplayProps) => {
+    const { t } = useTranslation();
+    const { trackSearch } = useAnalytics();
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-    const [searchTerm, setSearchTerm] = useState('');
     const [filterBy, setFilterBy] = useState<FilterBy>('all');
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+    
+    const {
+        searchTerm,
+        setSearchTerm,
+        filteredItems,
+        searchHistory,
+        suggestions,
+        showSuggestions,
+        setShowSuggestions,
+        highlightText,
+        clearSearchHistory
+    } = useAdvancedSearch(feedItems);
 
-    const handleReadMore = useCallback((index: number) => {
-        setExpandedIndex(prev => prev === index ? null : index);
-    }, []);
-
-    const filterFeedItems = useCallback((items: FeedItem[]) => {
+    // Apply additional filtering based on FilterBy selection
+    const finalFilteredItems = useCallback((items: FeedItem[]) => {
         if (!searchTerm.trim()) return items;
         
         const term = searchTerm.toLowerCase();
@@ -225,18 +279,48 @@ const FeedDisplay = memo(({ feedItems }: FeedDisplayProps) => {
                 case 'description':
                     return description.includes(term);
                 default:
-                    return title.includes(term) || description.includes(term);
+                    return items; // Already filtered by advanced search
             }
         });
     }, [searchTerm, filterBy]);
 
-    const filteredItems = filterFeedItems(feedItems);
+    const displayItems = finalFilteredItems(filteredItems);
+
+    // Pagination
+    const pagination = usePagination({
+        items: displayItems,
+        itemsPerPage,
+        initialPage: 1
+    });
+
+    const handleReadMore = useCallback((index: number) => {
+        setExpandedIndex(prev => prev === index ? null : index);
+    }, []);
+
+    // Reset pagination when search or filter changes
+    const resetPagination = useCallback(() => {
+        pagination.resetPagination();
+    }, [pagination.resetPagination]);
+
+    // Reset pagination when search term or filter changes
+    const handleSearchChange = useCallback((term: string) => {
+        setSearchTerm(term);
+        resetPagination();
+        if (term.trim()) {
+            trackSearch(term, displayItems.length);
+        }
+    }, [setSearchTerm, resetPagination, trackSearch, displayItems.length]);
+
+    const handleFilterChange = useCallback((newFilter: FilterBy) => {
+        setFilterBy(newFilter);
+        resetPagination();
+    }, [resetPagination]);
 
     return (
         <div className="feed-container">
-            <h2>RSS Feed Items</h2>
+            <h2>{t('feedDisplay.title')}</h2>
             
-            {/* Search and Filter Controls */}
+            {/* Advanced Search and Filter Controls */}
             <div className="search-filter-container" style={{
                 backgroundColor: '#f8f9fa',
                 padding: '1rem',
@@ -244,41 +328,72 @@ const FeedDisplay = memo(({ feedItems }: FeedDisplayProps) => {
                 margin: '1rem 0',
                 border: '1px solid #dee2e6'
             }}>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                    <input
-                        type="text"
-                        placeholder="Search feed items..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        style={{
-                            flex: 1,
-                            minWidth: '200px',
-                            padding: '0.5rem',
-                            border: '1px solid #ccc',
-                            borderRadius: '4px',
-                            fontSize: '1rem'
-                        }}
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                    <AdvancedSearch
+                        searchTerm={searchTerm}
+                        onSearchChange={handleSearchChange}
+                        suggestions={suggestions}
+                        showSuggestions={showSuggestions}
+                        setShowSuggestions={setShowSuggestions}
+                        onClearHistory={clearSearchHistory}
                     />
                     <select
                         value={filterBy}
-                        onChange={(e) => setFilterBy(e.target.value as FilterBy)}
+                        onChange={(e) => handleFilterChange(e.target.value as FilterBy)}
                         style={{
                             padding: '0.5rem',
                             border: '1px solid #ccc',
                             borderRadius: '4px',
-                            fontSize: '1rem'
+                            fontSize: '1rem',
+                            minWidth: '150px'
                         }}
                     >
-                        <option value="all">All Fields</option>
-                        <option value="title">Title Only</option>
-                        <option value="description">Description Only</option>
+                        <option value="all">{t('search.operators.all')}</option>
+                        <option value="title">{t('search.operators.title')}</option>
+                        <option value="description">{t('search.operators.description')}</option>
                     </select>
-                    {searchTerm && (
-                        <div style={{ fontSize: '0.875rem', color: '#666' }}>
-                            Found {filteredItems.length} of {feedItems.length} items
-                        </div>
-                    )}
+                    
+                    {/* Items per page selector */}
+                    <select
+                        value={itemsPerPage}
+                        onChange={(e) => {
+                            setItemsPerPage(Number(e.target.value));
+                            resetPagination();
+                        }}
+                        style={{
+                            padding: '0.5rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            fontSize: '1rem',
+                            minWidth: '120px'
+                        }}
+                    >
+                        <option value={5}>5 per page</option>
+                        <option value={10}>10 per page</option>
+                        <option value={20}>20 per page</option>
+                        <option value={50}>50 per page</option>
+                        <option value={100}>100 per page</option>
+                    </select>
                 </div>
+                {searchTerm && (
+                    <div style={{ 
+                        fontSize: '0.875rem', 
+                        color: '#666',
+                        marginTop: '0.5rem'
+                    }}>
+                        {t('feedDisplay.found', { count: displayItems.length, total: feedItems.length })}
+                        {displayItems.length > itemsPerPage && (
+                            <span style={{ marginLeft: '1rem' }}>
+                                📄 {t('feedDisplay.page', { current: pagination.currentPage, total: pagination.totalPages })}
+                            </span>
+                        )}
+                        {searchHistory.length > 0 && (
+                            <span style={{ marginLeft: '1rem' }}>
+                                🕐 {t('feedDisplay.recentSearches', { count: searchHistory.length })}
+                            </span>
+                        )}
+                    </div>
+                )}
             </div>
             
             {!Array.isArray(feedItems) ? (
@@ -292,7 +407,7 @@ const FeedDisplay = memo(({ feedItems }: FeedDisplayProps) => {
                     textAlign: 'center'
                 }}>
                     <p style={{ margin: '0' }}>
-                        ⚠️ Error: Invalid data format received. Please try refreshing the feed.
+                        ⚠️ {t('feedDisplay.invalidData')}
                     </p>
                 </div>
             ) : feedItems.length === 0 ? (
@@ -306,10 +421,10 @@ const FeedDisplay = memo(({ feedItems }: FeedDisplayProps) => {
                     textAlign: 'center'
                 }}>
                     <p style={{ margin: '0' }}>
-                        📭 No feed items available. The feed might be empty or temporarily unavailable.
+                        📭 {t('feedDisplay.noItems')}
                     </p>
                 </div>
-            ) : filteredItems.length === 0 && searchTerm ? (
+            ) : displayItems.length === 0 && searchTerm ? (
                 <div style={{
                     backgroundColor: '#fff3cd',
                     border: '1px solid #ffc107',
@@ -320,21 +435,43 @@ const FeedDisplay = memo(({ feedItems }: FeedDisplayProps) => {
                     textAlign: 'center'
                 }}>
                     <p style={{ margin: '0' }}>
-                        🔍 No items found matching "{searchTerm}". Try adjusting your search terms.
+                        🔍 {t('feedDisplay.noResults', { query: searchTerm })}
                     </p>
                 </div>
             ) : (
-                <div className="feed-grid">
-                    {filteredItems.map((item, index) => (
-                        <FeedItemComponent
-                            key={index}
-                            item={item}
-                            index={feedItems.indexOf(item)}
-                            expandedIndex={expandedIndex}
-                            onReadMore={handleReadMore}
+                <>
+                    <div className="feed-grid">
+                        {pagination.currentItems.map((item, index) => (
+                            <FeedItemComponent
+                                key={index}
+                                item={item}
+                                index={feedItems.indexOf(item)}
+                                expandedIndex={expandedIndex}
+                                onReadMore={handleReadMore}
+                                highlightText={highlightText}
+                                searchTerm={searchTerm}
+                            />
+                        ))}
+                    </div>
+                    
+                    {/* Pagination component */}
+                    {displayItems.length > itemsPerPage && (
+                        <Pagination
+                            currentPage={pagination.currentPage}
+                            totalPages={pagination.totalPages}
+                            totalItems={displayItems.length}
+                            itemsPerPage={itemsPerPage}
+                            onPageChange={pagination.goToPage}
+                            goToPreviousPage={pagination.goToPreviousPage}
+                            goToNextPage={pagination.goToNextPage}
+                            goToFirstPage={pagination.goToFirstPage}
+                            goToLastPage={pagination.goToLastPage}
+                            hasNextPage={pagination.hasNextPage}
+                            hasPreviousPage={pagination.hasPreviousPage}
+                            getPageNumbers={pagination.getPageNumbers}
                         />
-                    ))}
-                </div>
+                    )}
+                </>
             )}
         </div>
     );

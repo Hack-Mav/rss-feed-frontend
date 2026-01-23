@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, memo } from "react";
-import { FeedSelectorSkeleton, InlineSpinner } from "./Skeleton";
+import { FeedSelectorSkeleton } from "./Skeleton";
 import apiService from "../services/api";
 import "../App.css";
 
