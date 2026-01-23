@@ -1,0 +1,180 @@
+{
+  "app": {
+    "title": "RSS Feed Reader",
+    "subtitle": "Stay updated with the latest articles from your favorite sources.",
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "dismiss": "Dismiss"
+  },
+  "navigation": {
+    "reader": "📖 Feed Reader",
+    "manager": "⚙️ Feed Manager"
+  },
+  "feedSelector": {
+    "title": "📰 Select RSS Feed",
+    "placeholder": "Choose a feed...",
+    "loadButton": "Load Feed",
+    "noFeeds": "No predefined feeds available.",
+    "tryCustom": "Try adding a custom RSS feed URL below."
+  },
+  "customFeed": {
+    "title": "➕ Add Custom Feed",
+    "placeholder": "Enter RSS feed URL...",
+    "addButton": "Add Feed",
+    "invalidUrl": "Please enter a valid RSS feed URL."
+  },
+  "feedDisplay": {
+    "title": "RSS Feed Items",
+    "noItems": "📭 No feed items available. The feed might be empty or temporarily unavailable.",
+    "invalidData": "⚠️ Error: Invalid data format received. Please try refreshing the feed.",
+    "noResults": "🔍 No items found matching \"{{query}}\". Try adjusting your search terms or operators.",
+    "found": "Found {{count}} of {{total}} items",
+    "page": "📄 Page {{current}} of {{total}}",
+    "recentSearches": "🕐 {{count}} recent searches"
+  },
+  "feedItem": {
+    "visitArticle": "Visit Full Article",
+    "bookmark": "🔖 Bookmark",
+    "bookmarked": "📚 Bookmarked",
+    "readMore": "Read More",
+    "showLess": "Show Less",
+    "publicationDate": "Publication Date",
+    "author": "Author",
+    "unknown": "Unknown",
+    "noDescription": "No description available.",
+    "invalidItem": "⚠️ Invalid Feed Item",
+    "invalidItemDesc": "This feed item could not be processed due to invalid data format."
+  },
+  "bookmarks": {
+    "title": "📚 Bookmarked Articles",
+    "noBookmarks": "No bookmarked articles yet.",
+    "clearAll": "Clear All Bookmarks",
+    "removeBookmark": "Remove bookmark",
+    "bookmarkAdded": "Article bookmarked successfully!",
+    "bookmarkRemoved": "Bookmark removed successfully!"
+  },
+  "search": {
+    "placeholder": "Search articles...",
+    "advancedSearch": "Advanced Search",
+    "searchHistory": "Search History",
+    "clearHistory": "Clear History",
+    "suggestions": "Suggestions",
+    "noSuggestions": "No suggestions available.",
+    "operators": {
+      "title": "Search in title only",
+      "description": "Search in description only",
+      "all": "Search all fields"
+    }
+  },
+  "pagination": {
+    "first": "First",
+    "previous": "Previous",
+    "next": "Next",
+    "last": "Last",
+    "itemsPerPage": "Items per page",
+    "showing": "Showing {{start}}-{{end}} of {{total}} items"
+  },
+  "theme": {
+    "toggle": "Switch to {{mode}} mode",
+    "light": "light",
+    "dark": "dark",
+    "system": "system"
+  },
+  "offline": {
+    "title": "Offline Mode",
+    "message": "You are currently offline. Some features may be limited.",
+    "connectionRestored": "Connection restored!",
+    "syncInProgress": "Syncing data..."
+  },
+  "errors": {
+    "network": "Network error. Please check your internet connection.",
+    "serverError": "Server error. Please try again later.",
+    "notFound": "The requested resource was not found.",
+    "unauthorized": "Unauthorized. Please check your credentials.",
+    "forbidden": "Forbidden. You do not have permission to access this resource.",
+    "tooManyRequests": "Too many requests. Please wait before trying again.",
+    "badRequest": "Bad request. Please check your input.",
+    "timeout": "Request timeout. Please try again.",
+    "unknown": "An unexpected error occurred."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "autoSync": "Auto-sync",
+    "cache": "Cache",
+    "clearCache": "Clear Cache",
+    "about": "About"
+  },
+  "notifications": {
+    "newArticles": "New articles available",
+    "syncComplete": "Sync completed successfully",
+    "bookmarkAdded": "Article bookmarked",
+    "bookmarkRemoved": "Bookmark removed",
+    "errorOccurred": "An error occurred"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "loadingFeed": "Fetching RSS feed...",
+    "loadingItems": "Loading feed items...",
+    "maxRetries": "Maximum retry attempts reached. Please refresh the page.",
+    "retryFeed": "Retry fetching RSS feed."
+  },
+  "time": {
+    "justNow": "just now",
+    "minuteAgo": "1 minute ago",
+    "minutesAgo": "{{count}} minutes ago",
+    "hourAgo": "1 hour ago",
+    "hoursAgo": "{{count}} hours ago",
+    "dayAgo": "1 day ago",
+    "daysAgo": "{{count}} days ago",
+    "weekAgo": "1 week ago",
+    "weeksAgo": "{{count}} weeks ago",
+    "monthAgo": "1 month ago",
+    "monthsAgo": "{{count}} months ago",
+    "yearAgo": "1 year ago",
+    "yearsAgo": "{{count}} years ago"
+  },
+  "socialShare": {
+    "share": "Share",
+    "shareArticle": "Share this article",
+    "copyLink": "Copy link",
+    "sharedSuccessfully": "Article shared successfully!",
+    "shareError": "Error sharing article"
+  },
+  "comments": {
+    "title": "Comments",
+    "addComment": "Add a Comment",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "comment": "Comment",
+    "commentPlaceholder": "Share your thoughts...",
+    "submit": "Submit Comment",
+    "submitting": "Submitting...",
+    "noComments": "No comments yet. Be the first to share your thoughts!",
+    "delete": "Delete comment",
+    "reply": "Reply",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "commentAdded": "Comment added successfully!",
+    "commentDeleted": "Comment deleted successfully!"
+  },
+  "common": {
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

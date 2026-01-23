@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Lector de RSS",
+    "subtitle": "Mantente actualizado con los últimos artículos de tus fuentes favoritas.",
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "dismiss": "Descartar"
+  },
+  "navigation": {
+    "reader": "📖 Lector de Feeds",
+    "manager": "⚙️ Gestor de Feeds"
+  },
+  "feedSelector": {
+    "title": "📰 Seleccionar Feed RSS",
+    "placeholder": "Elige un feed...",
+    "loadButton": "Cargar Feed",
+    "noFeeds": "No hay feeds predefinidos disponibles.",
+    "tryCustom": "Intenta agregar una URL de feed RSS personalizada abajo."
+  },
+  "customFeed": {
+    "title": "➕ Agregar Feed Personalizado",
+    "placeholder": "Ingresa URL del feed RSS...",
+    "addButton": "Agregar Feed",
+    "invalidUrl": "Por favor ingresa una URL de feed RSS válida."
+  },
+  "feedDisplay": {
+    "title": "Artículos del Feed RSS",
+    "noItems": "📭 No hay artículos disponibles. El feed podría estar vacío o temporalmente no disponible.",
+    "invalidData": "⚠️ Error: Formato de datos inválido. Por favor intenta recargar el feed.",
+    "noResults": "🔍 No se encontraron artículos que coincidan con \"{{query}}\". Intenta ajustar tus términos de búsqueda."
+  },
+  "feedItem": {
+    "visitArticle": "Visitar Artículo Completo",
+    "bookmark": "🔖 Marcador",
+    "bookmarked": "📚 Marcado",
+    "readMore": "Leer Más",
+    "showLess": "Mostrar Menos",
+    "publicationDate": "Fecha de Publicación",
+    "author": "Autor",
+    "unknown": "Desconocido"
+  },
+  "bookmarks": {
+    "title": "📚 Artículos Marcados",
+    "noBookmarks": "No hay artículos marcados aún.",
+    "clearAll": "Limpiar Todos los Marcadores"
+  },
+  "theme": {
+    "toggle": "Cambiar a modo {{mode}}",
+    "light": "claro",
+    "dark": "oscuro"
+  }
+}
