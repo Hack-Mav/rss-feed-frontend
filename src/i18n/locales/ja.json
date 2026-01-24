@@ -1,0 +1,180 @@
+{
+  "app": {
+    "title": "RSSフィードリーダー",
+    "subtitle": "お気に入りのソースから最新の記事を入手して、最新情報を入手しましょう。",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "retry": "再試行",
+    "dismiss": "無視"
+  },
+  "navigation": {
+    "reader": "📖 フィードリーダー",
+    "manager": "⚙️ フィードマネージャー"
+  },
+  "feedSelector": {
+    "title": "📰 RSSフィードを選択",
+    "placeholder": "フィードを選択...",
+    "loadButton": "フィードを読み込む",
+    "noFeeds": "利用可能な定義済みフィードがありません。",
+    "tryCustom": "下にカスタムRSSフィードURLを追加してみてください。"
+  },
+  "customFeed": {
+    "title": "➕ カスタムフィードを追加",
+    "placeholder": "RSSフィードURLを入力...",
+    "addButton": "フィードを追加",
+    "invalidUrl": "有効なRSSフィードURLを入力してください。"
+  },
+  "feedDisplay": {
+    "title": "RSSフィードアイテム",
+    "noItems": "📭 利用可能なフィードアイテムがありません。フィードが空であるか、一時的に利用できない可能性があります。",
+    "invalidData": "⚠️ エラー：無効なデータ形式を受信しました。フィードを更新してみてください。",
+    "noResults": "🔍 \"{{query}}\"に一致するアイテムが見つかりませんでした。検索語や演算子を調整してみてください。",
+    "found": "{{total}}個中{{count}}個見つかりました",
+    "page": "📄 {{total}}ページ中{{current}}ページ",
+    "recentSearches": "🕐 最近の検索{{count}}件"
+  },
+  "feedItem": {
+    "visitArticle": "完全な記事を訪問",
+    "bookmark": "🔖 ブックマーク",
+    "bookmarked": "📚 ブックマーク済み",
+    "readMore": "もっと読む",
+    "showLess": "表示を減らす",
+    "publicationDate": "公開日",
+    "author": "著者",
+    "unknown": "不明",
+    "noDescription": "説明がありません。",
+    "invalidItem": "⚠️ 無効なフィードアイテム",
+    "invalidItemDesc": "このフィードアイテムは無効なデータ形式のため処理できませんでした。"
+  },
+  "bookmarks": {
+    "title": "📚 ブックマークした記事",
+    "noBookmarks": "まだブックマークした記事がありません。",
+    "clearAll": "すべてのブックマークをクリア",
+    "removeBookmark": "ブックマークを削除",
+    "bookmarkAdded": "記事のブックマークに成功しました！",
+    "bookmarkRemoved": "ブックマークの削除に成功しました！"
+  },
+  "search": {
+    "placeholder": "記事を検索...",
+    "advancedSearch": "高度な検索",
+    "searchHistory": "検索履歴",
+    "clearHistory": "履歴をクリア",
+    "suggestions": "提案",
+    "noSuggestions": "利用可能な提案がありません。",
+    "operators": {
+      "title": "タイトルのみを検索",
+      "description": "説明のみを検索",
+      "all": "すべてのフィールドを検索"
+    }
+  },
+  "pagination": {
+    "first": "最初",
+    "previous": "前",
+    "next": "次",
+    "last": "最後",
+    "itemsPerPage": "ページあたりのアイテム数",
+    "showing": "{{total}}個中{{start}}-{{end}}個を表示"
+  },
+  "theme": {
+    "toggle": "{{mode}}モードに切り替え",
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム"
+  },
+  "offline": {
+    "title": "オフラインモード",
+    "message": "現在オフラインです。一部の機能が制限される場合があります。",
+    "connectionRestored": "接続が復元されました！",
+    "syncInProgress": "データを同期中..."
+  },
+  "errors": {
+    "network": "ネットワークエラーです。インターネット接続を確認してください。",
+    "serverError": "サーバーエラーです。後でもう一度お試しください。",
+    "notFound": "要求されたリソースが見つかりませんでした。",
+    "unauthorized": "認証されていません。認証情報を確認してください。",
+    "forbidden": "アクセス禁止です。このリソースにアクセスする権限がありません。",
+    "tooManyRequests": "リクエストが多すぎます。再試行するまでお待ちください。",
+    "badRequest": "不正なリクエストです。入力を確認してください。",
+    "timeout": "リクエストタイムアウトです。再試行してください。",
+    "unknown": "予期しないエラーが発生しました。"
+  },
+  "settings": {
+    "title": "設定",
+    "language": "言語",
+    "theme": "テーマ",
+    "notifications": "通知",
+    "autoSync": "自動同期",
+    "cache": "キャッシュ",
+    "clearCache": "キャッシュをクリア",
+    "about": "について"
+  },
+  "notifications": {
+    "newArticles": "新しい記事が利用可能です",
+    "syncComplete": "同期が正常に完了しました",
+    "bookmarkAdded": "記事がブックマークされました",
+    "bookmarkRemoved": "ブックマークが削除されました",
+    "errorOccurred": "エラーが発生しました"
+  },
+  "accessibility": {
+    "skipToContent": "メインコンテンツにスキップ",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "loadingFeed": "RSSフィードを取得中...",
+    "loadingItems": "フィードアイテムを読み込み中...",
+    "maxRetries": "最大再試行回数に達しました。ページを更新してください。",
+    "retryFeed": "RSSフィードの取得を再試行。"
+  },
+  "time": {
+    "justNow": "たった今",
+    "minuteAgo": "1分前",
+    "minutesAgo": "{{count}}分前",
+    "hourAgo": "1時間前",
+    "hoursAgo": "{{count}}時間前",
+    "dayAgo": "1日前",
+    "daysAgo": "{{count}}日前",
+    "weekAgo": "1週間前",
+    "weeksAgo": "{{count}}週間前",
+    "monthAgo": "1ヶ月前",
+    "monthsAgo": "{{count}}ヶ月前",
+    "yearAgo": "1年前",
+    "yearsAgo": "{{count}}年前"
+  },
+  "socialShare": {
+    "share": "共有",
+    "shareArticle": "この記事を共有",
+    "copyLink": "リンクをコピー",
+    "sharedSuccessfully": "記事の共有に成功しました！",
+    "shareError": "記事の共有中にエラー"
+  },
+  "comments": {
+    "title": "コメント",
+    "addComment": "コメントを追加",
+    "name": "名前",
+    "namePlaceholder": "お名前を入力",
+    "comment": "コメント",
+    "commentPlaceholder": "考えを共有...",
+    "submit": "コメントを送信",
+    "submitting": "送信中...",
+    "noComments": "まだコメントがありません。最初に考えを共有してください！",
+    "delete": "コメントを削除",
+    "reply": "返信",
+    "edit": "編集",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "commentAdded": "コメントの追加に成功しました！",
+    "commentDeleted": "コメントの削除に成功しました！"
+  },
+  "common": {
+    "close": "閉じる",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "confirm": "確認",
+    "yes": "はい",
+    "no": "いいえ"
+  }
+}

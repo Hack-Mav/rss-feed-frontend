@@ -1,0 +1,180 @@
+{
+  "app": {
+    "title": "RSS订阅阅读器",
+    "subtitle": "随时了解您喜爱来源的最新文章。",
+    "loading": "加载中...",
+    "error": "错误",
+    "retry": "重试",
+    "dismiss": "忽略"
+  },
+  "navigation": {
+    "reader": "📖 订阅阅读器",
+    "manager": "⚙️ 订阅管理器"
+  },
+  "feedSelector": {
+    "title": "📰 选择RSS订阅",
+    "placeholder": "选择订阅...",
+    "loadButton": "加载订阅",
+    "noFeeds": "没有可用的预定义订阅。",
+    "tryCustom": "尝试在下面添加自定义RSS订阅URL。"
+  },
+  "customFeed": {
+    "title": "➕ 添加自定义订阅",
+    "placeholder": "输入RSS订阅URL...",
+    "addButton": "添加订阅",
+    "invalidUrl": "请输入有效的RSS订阅URL。"
+  },
+  "feedDisplay": {
+    "title": "RSS订阅项目",
+    "noItems": "📭 没有可用的订阅项目。订阅可能为空或暂时不可用。",
+    "invalidData": "⚠️ 错误：收到无效的数据格式。请尝试刷新订阅。",
+    "noResults": "🔍 没有找到匹配\"{{query}}\"的项目。尝试调整您的搜索词或运算符。",
+    "found": "找到{{count}}个，共{{total}}个项目",
+    "page": "📄 第{{current}}页，共{{total}}页",
+    "recentSearches": "🕐 {{count}}次最近搜索"
+  },
+  "feedItem": {
+    "visitArticle": "访问完整文章",
+    "bookmark": "🔖 书签",
+    "bookmarked": "📚 已收藏",
+    "readMore": "阅读更多",
+    "showLess": "显示更少",
+    "publicationDate": "发布日期",
+    "author": "作者",
+    "unknown": "未知",
+    "noDescription": "没有可用的描述。",
+    "invalidItem": "⚠️ 无效的订阅项目",
+    "invalidItemDesc": "由于数据格式无效，无法处理此订阅项目。"
+  },
+  "bookmarks": {
+    "title": "📚 收藏的文章",
+    "noBookmarks": "还没有收藏的文章。",
+    "clearAll": "清除所有书签",
+    "removeBookmark": "移除书签",
+    "bookmarkAdded": "文章收藏成功！",
+    "bookmarkRemoved": "书签移除成功！"
+  },
+  "search": {
+    "placeholder": "搜索文章...",
+    "advancedSearch": "高级搜索",
+    "searchHistory": "搜索历史",
+    "clearHistory": "清除历史",
+    "suggestions": "建议",
+    "noSuggestions": "没有可用的建议。",
+    "operators": {
+      "title": "仅在标题中搜索",
+      "description": "仅在描述中搜索",
+      "all": "搜索所有字段"
+    }
+  },
+  "pagination": {
+    "first": "首页",
+    "previous": "上一页",
+    "next": "下一页",
+    "last": "末页",
+    "itemsPerPage": "每页项目数",
+    "showing": "显示第{{start}}-{{end}}项，共{{total}}项"
+  },
+  "theme": {
+    "toggle": "切换到{{mode}}模式",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统"
+  },
+  "offline": {
+    "title": "离线模式",
+    "message": "您当前处于离线状态。某些功能可能受限。",
+    "connectionRestored": "连接已恢复！",
+    "syncInProgress": "正在同步数据..."
+  },
+  "errors": {
+    "network": "网络错误。请检查您的互联网连接。",
+    "serverError": "服务器错误。请稍后重试。",
+    "notFound": "未找到请求的资源。",
+    "unauthorized": "未授权。请检查您的凭据。",
+    "forbidden": "禁止访问。您没有权限访问此资源。",
+    "tooManyRequests": "请求过多。请稍后再试。",
+    "badRequest": "错误请求。请检查您的输入。",
+    "timeout": "请求超时。请重试。",
+    "unknown": "发生意外错误。"
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言",
+    "theme": "主题",
+    "notifications": "通知",
+    "autoSync": "自动同步",
+    "cache": "缓存",
+    "clearCache": "清除缓存",
+    "about": "关于"
+  },
+  "notifications": {
+    "newArticles": "有新文章可用",
+    "syncComplete": "同步成功完成",
+    "bookmarkAdded": "文章已收藏",
+    "bookmarkRemoved": "书签已移除",
+    "errorOccurred": "发生错误"
+  },
+  "accessibility": {
+    "skipToContent": "跳转到主要内容",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "loadingFeed": "正在获取RSS订阅...",
+    "loadingItems": "正在加载订阅项目...",
+    "maxRetries": "已达到最大重试次数。请刷新页面。",
+    "retryFeed": "重试获取RSS订阅。"
+  },
+  "time": {
+    "justNow": "刚刚",
+    "minuteAgo": "1分钟前",
+    "minutesAgo": "{{count}}分钟前",
+    "hourAgo": "1小时前",
+    "hoursAgo": "{{count}}小时前",
+    "dayAgo": "1天前",
+    "daysAgo": "{{count}}天前",
+    "weekAgo": "1周前",
+    "weeksAgo": "{{count}}周前",
+    "monthAgo": "1个月前",
+    "monthsAgo": "{{count}}个月前",
+    "yearAgo": "1年前",
+    "yearsAgo": "{{count}}年前"
+  },
+  "socialShare": {
+    "share": "分享",
+    "shareArticle": "分享此文章",
+    "copyLink": "复制链接",
+    "sharedSuccessfully": "文章分享成功！",
+    "shareError": "分享文章时出错"
+  },
+  "comments": {
+    "title": "评论",
+    "addComment": "添加评论",
+    "name": "姓名",
+    "namePlaceholder": "输入您的姓名",
+    "comment": "评论",
+    "commentPlaceholder": "分享您的想法...",
+    "submit": "提交评论",
+    "submitting": "提交中...",
+    "noComments": "还没有评论。成为第一个分享想法的人！",
+    "delete": "删除评论",
+    "reply": "回复",
+    "edit": "编辑",
+    "cancel": "取消",
+    "save": "保存",
+    "commentAdded": "评论添加成功！",
+    "commentDeleted": "评论删除成功！"
+  },
+  "common": {
+    "close": "关闭",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "confirm": "确认",
+    "yes": "是",
+    "no": "否"
+  }
+}

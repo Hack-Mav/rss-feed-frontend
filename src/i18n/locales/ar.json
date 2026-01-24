@@ -1,0 +1,180 @@
+{
+  "app": {
+    "title": "قارئ موجز RSS",
+    "subtitle": "ابق على اطلاع بأحدث المقالات من مصادرك المفضلة.",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "retry": "إعادة المحاولة",
+    "dismiss": "تجاهل"
+  },
+  "navigation": {
+    "reader": "📖 قارئ موجز",
+    "manager": "⚙️ مدير الموجز"
+  },
+  "feedSelector": {
+    "title": "📰 اختر موجز RSS",
+    "placeholder": "اختر موجزاً...",
+    "loadButton": "تحميل الموجز",
+    "noFeeds": "لا توجد موجزات محددة مسبقاً متاحة.",
+    "tryCustom": "جرب إضافة رابط موجز RSS مخصص أدناه."
+  },
+  "customFeed": {
+    "title": "➕ إضافة موجز مخصص",
+    "placeholder": "أدخل رابط موجز RSS...",
+    "addButton": "إضافة الموجز",
+    "invalidUrl": "الرجاء إدخال رابط موجز RSS صالح."
+  },
+  "feedDisplay": {
+    "title": "عناصر موجز RSS",
+    "noItems": "📭 لا توجد عناصر موجز متاحة. قد يكون الموجز فارغاً أو غير متاح مؤقتاً.",
+    "invalidData": "⚠️ خطأ: تم استلام تنسيق بيانات غير صالح. يرجى محاولة تحديث الموجز.",
+    "noResults": "🔍 لم يتم العثور على عناصر مطابقة لـ \"{{query}}\". جرب تعديل شروط البحث أو العوامل.",
+    "found": "تم العثور على {{count}} من {{total}} عنصر",
+    "page": "📄 الصفحة {{current}} من {{total}}",
+    "recentSearches": "🕐 {{count}} بحث حديث"
+  },
+  "feedItem": {
+    "visitArticle": "زيارة المقال الكامل",
+    "bookmark": "🔖 إشارة مرجعية",
+    "bookmarked": "📚 تم الإشارة",
+    "readMore": "قراءة المزيد",
+    "showLess": "عرض أقل",
+    "publicationDate": "تاريخ النشر",
+    "author": "المؤلف",
+    "unknown": "غير معروف",
+    "noDescription": "لا يوجد وصف متاح.",
+    "invalidItem": "⚠️ عنصر موجز غير صالح",
+    "invalidItemDesc": "لم يمكن معالجة هذا العنصر من الموجز بسبب تنسيق البيانات غير الصالح."
+  },
+  "bookmarks": {
+    "title": "📚 المقالات المشار إليها",
+    "noBookmarks": "لا توجد مقالات مشار إليها حتى الآن.",
+    "clearAll": "مسح جميع الإشارات المرجعية",
+    "removeBookmark": "إزالة الإشارة المرجعية",
+    "bookmarkAdded": "تمت إضافة المقال إلى الإشارات المرجعية بنجاح!",
+    "bookmarkRemoved": "تمت إزالة الإشارة المرجعية بنجاح!"
+  },
+  "search": {
+    "placeholder": "البحث في المقالات...",
+    "advancedSearch": "بحث متقدم",
+    "searchHistory": "سجل البحث",
+    "clearHistory": "مسح السجل",
+    "suggestions": "اقتراحات",
+    "noSuggestions": "لا توجد اقتراحات متاحة.",
+    "operators": {
+      "title": "البحث في العنوان فقط",
+      "description": "البحث في الوصف فقط",
+      "all": "البحث في جميع الحقول"
+    }
+  },
+  "pagination": {
+    "first": "الأول",
+    "previous": "السابق",
+    "next": "التالي",
+    "last": "الأخير",
+    "itemsPerPage": "العناصر لكل صفحة",
+    "showing": "عرض {{start}}-{{end}} من {{total}} عنصر"
+  },
+  "theme": {
+    "toggle": "التبديل إلى الوضع {{mode}}",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "offline": {
+    "title": "وضع عدم الاتصال",
+    "message": "أنت حالياً غير متصل بالإنترنت. قد تكون بعض الميزات محدودة.",
+    "connectionRestored": "تم استعادة الاتصال!",
+    "syncInProgress": "جاري مزامنة البيانات..."
+  },
+  "errors": {
+    "network": "خطأ في الشبكة. يرجى فحص اتصالك بالإنترنت.",
+    "serverError": "خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقاً.",
+    "notFound": "لم يتم العثور على المورد المطلوب.",
+    "unauthorized": "غير مصرح به. يرجى فحص بيانات الاعتماد الخاصة بك.",
+    "forbidden": "ممنوع. ليس لديك إذن للوصول إلى هذا المورد.",
+    "tooManyRequests": "طلبات كثيرة جداً. يرجى الانتظار قبل المحاولة مرة أخرى.",
+    "badRequest": "طلب سيء. يرجى فحص الإدخال الخاص بك.",
+    "timeout": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
+    "unknown": "حدث خطأ غير متوقع."
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "notifications": "الإشعارات",
+    "autoSync": "المزامنة التلقائية",
+    "cache": "الذاكرة المؤقتة",
+    "clearCache": "مسح الذاكرة المؤقتة",
+    "about": "حول"
+  },
+  "notifications": {
+    "newArticles": "مقالات جديدة متاحة",
+    "syncComplete": "اكتملت المزامنة بنجاح",
+    "bookmarkAdded": "تمت إضافة المقال إلى الإشارات المرجعية",
+    "bookmarkRemoved": "تمت إزالة الإشارة المرجعية",
+    "errorOccurred": "حدث خطأ"
+  },
+  "accessibility": {
+    "skipToContent": "تخطي إلى المحتوى الرئيسي",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "loadingFeed": "جاري جلب موجز RSS...",
+    "loadingItems": "جاري تحميل عناصر الموجز...",
+    "maxRetries": "تم الوصول إلى الحد الأقصى من محاولات إعادة المحاولة. يرجى تحديث الصفحة.",
+    "retryFeed": "إعادة محاولة جلب موجز RSS."
+  },
+  "time": {
+    "justNow": "الآن",
+    "minuteAgo": "منذ دقيقة واحدة",
+    "minutesAgo": "منذ {{count}} دقائق",
+    "hourAgo": "منذ ساعة واحدة",
+    "hoursAgo": "منذ {{count}} ساعات",
+    "dayAgo": "منذ يوم واحد",
+    "daysAgo": "منذ {{count}} أيام",
+    "weekAgo": "منذ أسبوع واحد",
+    "weeksAgo": "منذ {{count}} أسابيع",
+    "monthAgo": "منذ شهر واحد",
+    "monthsAgo": "منذ {{count}} أشهر",
+    "yearAgo": "منذ عام واحد",
+    "yearsAgo": "منذ {{count}} سنوات"
+  },
+  "socialShare": {
+    "share": "مشاركة",
+    "shareArticle": "مشاركة هذا المقال",
+    "copyLink": "نسخ الرابط",
+    "sharedSuccessfully": "تمت مشاركة المقال بنجاح!",
+    "shareError": "خطأ في مشاركة المقال"
+  },
+  "comments": {
+    "title": "التعليقات",
+    "addComment": "إضافة تعليق",
+    "name": "الاسم",
+    "namePlaceholder": "أدخل اسمك",
+    "comment": "التعليق",
+    "commentPlaceholder": "شارك أفكارك...",
+    "submit": "إرسال التعليق",
+    "submitting": "جاري الإرسال...",
+    "noComments": "لا توجد تعليقات حتى الآن. كن أول من يشارك أفكاره!",
+    "delete": "حذف التعليق",
+    "reply": "رد",
+    "edit": "تحرير",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "commentAdded": "تمت إضافة التعليق بنجاح!",
+    "commentDeleted": "تم حذف التعليق بنجاح!"
+  },
+  "common": {
+    "close": "إغلاق",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تحرير",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا"
+  }
+}

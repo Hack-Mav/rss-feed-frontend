@@ -28,7 +28,10 @@
     "title": "Artículos del Feed RSS",
     "noItems": "📭 No hay artículos disponibles. El feed podría estar vacío o temporalmente no disponible.",
     "invalidData": "⚠️ Error: Formato de datos inválido. Por favor intenta recargar el feed.",
-    "noResults": "🔍 No se encontraron artículos que coincidan con \"{{query}}\". Intenta ajustar tus términos de búsqueda."
+    "noResults": "🔍 No se encontraron artículos que coincidan con \"{{query}}\". Intenta ajustar tus términos de búsqueda u operadores.",
+    "found": "Encontrados {{count}} de {{total}} artículos",
+    "page": "📄 Página {{current}} de {{total}}",
+    "recentSearches": "🕐 {{count}} búsquedas recientes"
   },
   "feedItem": {
     "visitArticle": "Visitar Artículo Completo",
@@ -38,16 +41,140 @@
     "showLess": "Mostrar Menos",
     "publicationDate": "Fecha de Publicación",
     "author": "Autor",
-    "unknown": "Desconocido"
+    "unknown": "Desconocido",
+    "noDescription": "No hay descripción disponible.",
+    "invalidItem": "⚠️ Artículo de Feed Inválido",
+    "invalidItemDesc": "Este artículo del feed no pudo ser procesado debido a un formato de datos inválido."
   },
   "bookmarks": {
     "title": "📚 Artículos Marcados",
     "noBookmarks": "No hay artículos marcados aún.",
-    "clearAll": "Limpiar Todos los Marcadores"
+    "clearAll": "Limpiar Todos los Marcadores",
+    "removeBookmark": "Quitar marcador",
+    "bookmarkAdded": "¡Artículo marcado exitosamente!",
+    "bookmarkRemoved": "¡Marcador quitado exitosamente!"
+  },
+  "search": {
+    "placeholder": "Buscar artículos...",
+    "advancedSearch": "Búsqueda Avanzada",
+    "searchHistory": "Historial de Búsqueda",
+    "clearHistory": "Limpiar Historial",
+    "suggestions": "Sugerencias",
+    "noSuggestions": "No hay sugerencias disponibles.",
+    "operators": {
+      "title": "Buscar solo en el título",
+      "description": "Buscar solo en la descripción",
+      "all": "Buscar todos los campos"
+    }
+  },
+  "pagination": {
+    "first": "Primero",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "last": "Último",
+    "itemsPerPage": "Artículos por página",
+    "showing": "Mostrando {{start}}-{{end}} de {{total}} artículos"
   },
   "theme": {
     "toggle": "Cambiar a modo {{mode}}",
     "light": "claro",
-    "dark": "oscuro"
+    "dark": "oscuro",
+    "system": "sistema"
+  },
+  "offline": {
+    "title": "Modo Sin Conexión",
+    "message": "Actualmente estás sin conexión. Algunas funciones pueden estar limitadas.",
+    "connectionRestored": "¡Conexión restaurada!",
+    "syncInProgress": "Sincronizando datos..."
+  },
+  "errors": {
+    "network": "Error de red. Por favor verifica tu conexión a internet.",
+    "serverError": "Error del servidor. Por favor intenta más tarde.",
+    "notFound": "El recurso solicitado no fue encontrado.",
+    "unauthorized": "No autorizado. Por favor verifica tus credenciales.",
+    "forbidden": "Prohibido. No tienes permiso para acceder a este recurso.",
+    "tooManyRequests": "Demasiadas solicitudes. Por favor espera antes de intentar de nuevo.",
+    "badRequest": "Solicitud inválida. Por favor verifica tu entrada.",
+    "timeout": "Tiempo de espera agotado. Por favor intenta de nuevo.",
+    "unknown": "Ocurrió un error inesperado."
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "theme": "Tema",
+    "notifications": "Notificaciones",
+    "autoSync": "Sincronización automática",
+    "cache": "Caché",
+    "clearCache": "Limpiar Caché",
+    "about": "Acerca de"
+  },
+  "notifications": {
+    "newArticles": "Nuevos artículos disponibles",
+    "syncComplete": "Sincronización completada exitosamente",
+    "bookmarkAdded": "Artículo marcado",
+    "bookmarkRemoved": "Marcador quitado",
+    "errorOccurred": "Ocurrió un error"
+  },
+  "accessibility": {
+    "skipToContent": "Saltar al contenido principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "loadingFeed": "Obteniendo feed RSS...",
+    "loadingItems": "Cargando artículos del feed...",
+    "maxRetries": "Se alcanzó el máximo de intentos. Por favor actualiza la página.",
+    "retryFeed": "Reintentar obtener feed RSS."
+  },
+  "time": {
+    "justNow": "ahora mismo",
+    "minuteAgo": "hace 1 minuto",
+    "minutesAgo": "hace {{count}} minutos",
+    "hourAgo": "hace 1 hora",
+    "hoursAgo": "hace {{count}} horas",
+    "dayAgo": "hace 1 día",
+    "daysAgo": "hace {{count}} días",
+    "weekAgo": "hace 1 semana",
+    "weeksAgo": "hace {{count}} semanas",
+    "monthAgo": "hace 1 mes",
+    "monthsAgo": "hace {{count}} meses",
+    "yearAgo": "hace 1 año",
+    "yearsAgo": "hace {{count}} años"
+  },
+  "socialShare": {
+    "share": "Compartir",
+    "shareArticle": "Compartir este artículo",
+    "copyLink": "Copiar enlace",
+    "sharedSuccessfully": "¡Artículo compartido exitosamente!",
+    "shareError": "Error al compartir artículo"
+  },
+  "comments": {
+    "title": "Comentarios",
+    "addComment": "Agregar Comentario",
+    "name": "Nombre",
+    "namePlaceholder": "Ingresa tu nombre",
+    "comment": "Comentario",
+    "commentPlaceholder": "Comparte tus pensamientos...",
+    "submit": "Enviar Comentario",
+    "submitting": "Enviando...",
+    "noComments": "No hay comentarios aún. ¡Sé el primero en compartir tus pensamientos!",
+    "delete": "Eliminar comentario",
+    "reply": "Responder",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "commentAdded": "¡Comentario agregado exitosamente!",
+    "commentDeleted": "¡Comentario eliminado exitosamente!"
+  },
+  "common": {
+    "close": "Cerrar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No"
   }
 }

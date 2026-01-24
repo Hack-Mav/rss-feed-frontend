@@ -1,0 +1,180 @@
+{
+  "app": {
+    "title": "Lecteur de Flux RSS",
+    "subtitle": "Restez informé avec les derniers articles de vos sources préférées.",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "retry": "Réessayer",
+    "dismiss": "Ignorer"
+  },
+  "navigation": {
+    "reader": "📖 Lecteur de Flux",
+    "manager": "⚙️ Gestionnaire de Flux"
+  },
+  "feedSelector": {
+    "title": "📰 Sélectionner un Flux RSS",
+    "placeholder": "Choisir un flux...",
+    "loadButton": "Charger le Flux",
+    "noFeeds": "Aucun flux prédéfini disponible.",
+    "tryCustom": "Essayez d'ajouter une URL de flux RSS personnalisée ci-dessous."
+  },
+  "customFeed": {
+    "title": "➕ Ajouter un Flux Personnalisé",
+    "placeholder": "Entrer l'URL du flux RSS...",
+    "addButton": "Ajouter le Flux",
+    "invalidUrl": "Veuillez entrer une URL de flux RSS valide."
+  },
+  "feedDisplay": {
+    "title": "Éléments du Flux RSS",
+    "noItems": "📭 Aucun élément disponible. Le flux pourrait être vide ou temporairement indisponible.",
+    "invalidData": "⚠️ Erreur : Format de données invalide reçu. Veuillez essayer d'actualiser le flux.",
+    "noResults": "🔍 Aucun élément trouvé correspondant à \"{{query}}\". Essayez d'ajuster vos termes de recherche ou opérateurs.",
+    "found": "Trouvé {{count}} sur {{total}} éléments",
+    "page": "📄 Page {{current}} sur {{total}}",
+    "recentSearches": "🕐 {{count}} recherches récentes"
+  },
+  "feedItem": {
+    "visitArticle": "Visiter l'Article Complet",
+    "bookmark": "🔖 Signet",
+    "bookmarked": "📚 Enregistré",
+    "readMore": "Lire Plus",
+    "showLess": "Moins",
+    "publicationDate": "Date de Publication",
+    "author": "Auteur",
+    "unknown": "Inconnu",
+    "noDescription": "Aucune description disponible.",
+    "invalidItem": "⚠️ Élément de Flux Invalide",
+    "invalidItemDesc": "Cet élément de flux n'a pas pu être traité en raison d'un format de données invalide."
+  },
+  "bookmarks": {
+    "title": "📚 Articles en Signet",
+    "noBookmarks": "Aucun article en signet pour le moment.",
+    "clearAll": "Effacer Tous les Signets",
+    "removeBookmark": "Supprimer le signet",
+    "bookmarkAdded": "Article ajouté aux signets avec succès !",
+    "bookmarkRemoved": "Signet supprimé avec succès !"
+  },
+  "search": {
+    "placeholder": "Rechercher des articles...",
+    "advancedSearch": "Recherche Avancée",
+    "searchHistory": "Historique de Recherche",
+    "clearHistory": "Effacer l'Historique",
+    "suggestions": "Suggestions",
+    "noSuggestions": "Aucune suggestion disponible.",
+    "operators": {
+      "title": "Rechercher dans le titre uniquement",
+      "description": "Rechercher dans la description uniquement",
+      "all": "Rechercher tous les champs"
+    }
+  },
+  "pagination": {
+    "first": "Premier",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "last": "Dernier",
+    "itemsPerPage": "Éléments par page",
+    "showing": "Affichage de {{start}}-{{end}} sur {{total}} éléments"
+  },
+  "theme": {
+    "toggle": "Basculer en mode {{mode}}",
+    "light": "clair",
+    "dark": "sombre",
+    "system": "système"
+  },
+  "offline": {
+    "title": "Mode Hors Ligne",
+    "message": "Vous êtes actuellement hors ligne. Certaines fonctionnalités pourraient être limitées.",
+    "connectionRestored": "Connexion rétablie !",
+    "syncInProgress": "Synchronisation des données..."
+  },
+  "errors": {
+    "network": "Erreur réseau. Veuillez vérifier votre connexion internet.",
+    "serverError": "Erreur serveur. Veuillez réessayer plus tard.",
+    "notFound": "La ressource demandée n'a pas été trouvée.",
+    "unauthorized": "Non autorisé. Veuillez vérifier vos identifiants.",
+    "forbidden": "Interdit. Vous n'avez pas la permission d'accéder à cette ressource.",
+    "tooManyRequests": "Trop de requêtes. Veuillez attendre avant de réessayer.",
+    "badRequest": "Mauvaise requête. Veuillez vérifier votre entrée.",
+    "timeout": "Délai d'attente dépassé. Veuillez réessayer.",
+    "unknown": "Une erreur inattendue s'est produite."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "theme": "Thème",
+    "notifications": "Notifications",
+    "autoSync": "Synchronisation automatique",
+    "cache": "Cache",
+    "clearCache": "Vider le Cache",
+    "about": "À propos"
+  },
+  "notifications": {
+    "newArticles": "Nouveaux articles disponibles",
+    "syncComplete": "Synchronisation terminée avec succès",
+    "bookmarkAdded": "Article ajouté aux signets",
+    "bookmarkRemoved": "Signet supprimé",
+    "errorOccurred": "Une erreur s'est produite"
+  },
+  "accessibility": {
+    "skipToContent": "Aller au contenu principal",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "loadingFeed": "Récupération du flux RSS...",
+    "loadingItems": "Chargement des éléments du flux...",
+    "maxRetries": "Nombre maximum de tentatives atteint. Veuillez actualiser la page.",
+    "retryFeed": "Réessayer de récupérer le flux RSS."
+  },
+  "time": {
+    "justNow": "à l'instant",
+    "minuteAgo": "il y a 1 minute",
+    "minutesAgo": "il y a {{count}} minutes",
+    "hourAgo": "il y a 1 heure",
+    "hoursAgo": "il y a {{count}} heures",
+    "dayAgo": "il y a 1 jour",
+    "daysAgo": "il y a {{count}} jours",
+    "weekAgo": "il y a 1 semaine",
+    "weeksAgo": "il y a {{count}} semaines",
+    "monthAgo": "il y a 1 mois",
+    "monthsAgo": "il y a {{count}} mois",
+    "yearAgo": "il y a 1 an",
+    "yearsAgo": "il y a {{count}} ans"
+  },
+  "socialShare": {
+    "share": "Partager",
+    "shareArticle": "Partager cet article",
+    "copyLink": "Copier le lien",
+    "sharedSuccessfully": "Article partagé avec succès !",
+    "shareError": "Erreur lors du partage de l'article"
+  },
+  "comments": {
+    "title": "Commentaires",
+    "addComment": "Ajouter un Commentaire",
+    "name": "Nom",
+    "namePlaceholder": "Entrez votre nom",
+    "comment": "Commentaire",
+    "commentPlaceholder": "Partagez vos pensées...",
+    "submit": "Envoyer le Commentaire",
+    "submitting": "Envoi en cours...",
+    "noComments": "Aucun commentaire pour le moment. Soyez le premier à partager vos pensées !",
+    "delete": "Supprimer le commentaire",
+    "reply": "Répondre",
+    "edit": "Modifier",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "commentAdded": "Commentaire ajouté avec succès !",
+    "commentDeleted": "Commentaire supprimé avec succès !"
+  },
+  "common": {
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non"
+  }
+}
